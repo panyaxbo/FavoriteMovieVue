@@ -1,6 +1,9 @@
 # movie-express
 
 > A Vue.js project
+<p align="text-center">
+  <img src="/example/overview.png" />
+</p>
 
 ## Build Setup
 
