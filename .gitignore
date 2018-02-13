@@ -15,6 +15,7 @@ selenium-debug.log
 *.njsproj
 *.sln
 
-.server/config/config.js
+./server/config/config.js
+./server/environment/env.js
 
 .info
