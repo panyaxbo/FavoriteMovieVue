@@ -5,8 +5,22 @@ const morgan = require('morgan')
 const requestify = require('requestify')
 const environment = require('./environment/env')
 const config = require('./config/config')
-
+const databaseConfig = require('./config/database')
+const databaseCredential = require('./config/credential')
+const mongoose = require('mongoose')
 const app = express()
+
+// Connect mLab Database
+mongoose.connect(`${databaseConfig.PROTOCOL}://${databaseCredential.DB.USERNAME}:${databaseCredential.DB.PASSWORD}@${databaseConfig.MLAB_URI}:${databaseConfig.PORT}/${databaseConfig.DATABASE}`)
+let db = mongoose.connection
+
+db.on('error', (error) => {
+  console.log(error)
+})
+
+db.once('open', () => {
+  console.log('Connect to mLAB Database')
+})
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())

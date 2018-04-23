@@ -19,3 +19,4 @@ selenium-debug.log
 ./server/environment/env.js
 
 .info
+package-lock.json
